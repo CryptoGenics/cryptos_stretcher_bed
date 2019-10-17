@@ -15,7 +15,7 @@ ___
 2. Extract the zip.
 3. move cryptos_stretcher.lua to esx_ambulancejob/client
 3. open the esx_ambulancejob "__resource.lua"
-4. Add 'client/stretcher.lua'
+4. Add 'client/cryptos_stretcher.lua'
 5. client_scirpts should look something like this
 ```
 client_scripts {
@@ -30,7 +30,7 @@ client_scripts {
 	'config.lua',
 	'client/main.lua',
 	'client/job.lua',
-	'client/stretcher.lua'
+	client/cryptos_stretcher.lua'
 }
 ```
 5. Profit
