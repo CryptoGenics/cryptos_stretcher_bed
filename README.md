@@ -5,7 +5,7 @@ ___
 # Installation - Framework free
 1. Clone this repository.
 2. Extract the zip.
-3. Change cryptos_stretcher_bed-master to esx_finance
+3. Change cryptos_stretcher_bed-master to cryptos_stretcher_bed
 3. Put cryptos_stretcher_bed to your resource folder.
 4. Add "start cryptos_stretcher_bed" in your "server.cfg".
 5. Profit
