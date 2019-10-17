@@ -30,7 +30,7 @@ client_scripts {
 	'config.lua',
 	'client/main.lua',
 	'client/job.lua',
-	client/cryptos_stretcher.lua'
+	'client/cryptos_stretcher.lua'
 }
 ```
 5. Profit
