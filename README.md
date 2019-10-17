@@ -41,4 +41,4 @@ client_scripts {
 
 # Made by
 - CryptoGenics
-- Based off qulle-wheelchair 
+- Based off qulle-wheelchair https://github.com/qalle-fivem/qalle-wheelchair
