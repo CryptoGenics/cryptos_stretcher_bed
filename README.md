@@ -33,6 +33,99 @@ client_scripts {
 	'client/cryptos_stretcher.lua'
 }
 ```
+6. Find 
+```
+if data.current.value == 'citizen_interaction' then
+			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
+				title    = _U('ems_menu_title'),
+				align    = 'top-left',
+				elements = {
+					{label = _U('ems_menu_revive'), value = 'revive'},
+					{label = _U('ems_menu_small'), value = 'small'},
+					{label = _U('ems_menu_big'), value = 'big'},
+					{label = _U('ems_menu_putincar'), value = 'put_in_vehicle'}
+				}
+			}, function(data, menu)
+				if IsBusy then return end
+
+				local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+
+				if closestPlayer == -1 or closestDistance > 1.0 then
+					ESX.ShowNotification(_U('no_players'))
+				else
+
+					if data.current.value == 'revive' then
+```
+7. Add 
+```{label = _U('place_objects'), value = 'object_spawner'}```
+and object_spawner to look like this
+```
+if data.current.value == 'citizen_interaction' then
+			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
+				title    = _U('ems_menu_title'),
+				align    = 'top-left',
+				elements = {
+					{label = _U('ems_menu_revive'), value = 'revive'},
+					{label = _U('ems_menu_small'), value = 'small'},
+					{label = _U('ems_menu_big'), value = 'big'},
+					{label = _U('ems_menu_putincar'), value = 'put_in_vehicle'},
+					{label = _U('place_objects'), value = 'object_spawner'}
+				}
+			}, function(data, menu)
+				if IsBusy then return end
+
+				local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+
+				if closestPlayer == -1 or closestDistance > 1.0 then
+					if data.current.value == 'object_spawner' then
+   
+					   local playerPed = PlayerPedId()
+				   
+					   if IsPedSittingInAnyVehicle(playerPed) then
+						   exports['mythic_notify']:SendAlert('error', _U('inside_vehicle'))
+						   return
+					   end
+				   
+					   ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'mobile_ambulance_actions_spawn', {
+						   title    = 'Spawner',
+						   align    = 'top-left',
+						   elements = {
+							   {label = 'Hospital Bed', value = 'v_med_emptybed'},
+							   {label = 'Stretcher',  value = 'prop_ld_binbag_01'}
+						   }
+					   }, function(data2, menu2)
+						   local model   = data2.current.value
+						   local coords  = GetEntityCoords(playerPed)
+						   local forward = GetEntityForwardVector(playerPed)
+						   local x, y, z = table.unpack(coords + forward * 1.0)
+				   
+						   if model == 'v_med_emptybed' then
+							   z = z - 2.0
+							   y = y + 1.0
+						   elseif model == 'prop_ld_binbag_01' then
+							   z = z - 2.0
+							   y = y + 1.0
+						   end
+				   
+						   ESX.Game.SpawnObject(model, {
+							   x = x,
+							   y = y,
+							   z = z
+						   }, function(obj)
+							   SetEntityHeading(obj, GetEntityHeading(playerPed))
+							   PlaceObjectOnGroundProperly(obj)
+						   end)
+				   
+					   end, function(data2, menu2)
+						   menu2.close()
+					   end)
+					else
+						ESX.ShowNotification(_U('no_players'))
+					end
+				else
+
+					if data.current.value == 'revive' then
+```
 5. Profit
 
 # Required resource
