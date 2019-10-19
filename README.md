@@ -58,7 +58,7 @@ if data.current.value == 'citizen_interaction' then
 ```
 7. Add 
 ```{label = _U('place_objects'), value = 'object_spawner'}```
-and object_spawner to look like this
+and ```if data.current.value == 'object_spawner' then``` to look like this
 ```
 if data.current.value == 'citizen_interaction' then
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
@@ -82,7 +82,7 @@ if data.current.value == 'citizen_interaction' then
 					   local playerPed = PlayerPedId()
 				   
 					   if IsPedSittingInAnyVehicle(playerPed) then
-						   exports['mythic_notify']:SendAlert('error', _U('inside_vehicle'))
+						   ESX.ShowNotification(_U('inside_vehicle'))
 						   return
 					   end
 				   
@@ -129,7 +129,7 @@ if data.current.value == 'citizen_interaction' then
 5. Profit
 
 # Required resource
-- es_ambulancejob (optional)
+- esx_ambulancejob (optional)
 - stretcher used: https://www.lcpdfr.com/files/file/18046-body-bags/
 
 # Made by
