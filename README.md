@@ -14,9 +14,9 @@ ___
 1. Clone this repository.
 2. Extract the zip.
 3. move cryptos_stretcher.lua to esx_ambulancejob/client
-3. open the esx_ambulancejob "__resource.lua"
-4. Add 'client/cryptos_stretcher.lua'
-5. client_scirpts should look something like this
+4. open the esx_ambulancejob "__resource.lua"
+5. Add 'client/cryptos_stretcher.lua'
+6. client_scirpts should look something like this
 ```
 client_scripts {
 	'@es_extended/locale.lua',
@@ -33,7 +33,7 @@ client_scripts {
 	'client/cryptos_stretcher.lua'
 }
 ```
-6. Find 
+7. Find 
 ```
 if data.current.value == 'citizen_interaction' then
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
@@ -56,7 +56,7 @@ if data.current.value == 'citizen_interaction' then
 
 					if data.current.value == 'revive' then
 ```
-7. Add 
+8. Add 
 ```{label = _U('place_objects'), value = 'object_spawner'}```
 and ```if data.current.value == 'object_spawner' then``` to look like this
 ```
@@ -126,7 +126,7 @@ if data.current.value == 'citizen_interaction' then
 
 					if data.current.value == 'revive' then
 ```
-5. Profit
+9. Profit
 
 # Required resource
 - esx_ambulancejob (optional)
