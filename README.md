@@ -134,4 +134,4 @@ if data.current.value == 'citizen_interaction' then
 
 # Made by
 - CryptoGenics
-- Based off qulle-wheelchair https://github.com/qalle-fivem/qalle-wheelchair
+- Based off qalle-wheelchair https://github.com/qalle-fivem/qalle-wheelchair
