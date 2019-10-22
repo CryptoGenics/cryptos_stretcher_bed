@@ -1,5 +1,7 @@
 # cryptos_stretcher_bed
 Stretcher and Hospital Bed lay/push based off qalle-wheelchair
+
+I didn't plan on releasing this but because of some toxic people I am forced to open source this before it hits the script black market or ends up with the wrong credits.
 ___
 
 # Installation - Framework free
